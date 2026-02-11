@@ -1,0 +1,21 @@
+git clone ...
+cd ...
+touch commands.txt
+git switch -c feature-update
+mkdir reports
+touch reports/summary.md
+echo "This document provides a summary of the project updates." >> reports/summary.md
+git add reports/
+git commit -m "Add reports directory"
+git push -u origin feature-update
+mv data/raw-data.csv data/input-data.csv
+mkdir -p scripts/backup && cp scripts/*.py scripts/backup/
+rm docs/documentation.md
+git add .
+git commit -m "Update project files"
+touch .gitignore
+echo -e "temp/\ndataset0?.csv" >> .gitignore
+git add .gitignore && git commit -m "Add .gitignore file"
+git switch main && git merge feature-update
+
+
